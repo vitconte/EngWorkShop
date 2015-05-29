@@ -1,8 +1,7 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
-var app = angular.module('engApp', ['ngRoute'])
-
+var app = angular.module('engWs', ['ngRoute']);
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/', {

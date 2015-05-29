@@ -4,4 +4,5 @@
 
 angular.module('engApp', [])
 .controller('homeController', ['$scope', function($scope){
+        console.log('eccomi');
 }]);
