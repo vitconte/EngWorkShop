@@ -3,5 +3,4 @@
  */
 angular.module('engWs')
     .controller('dettaglioContattoController', ['$scope', function($scope){
-        console.log('eccomi dett');
     }]);

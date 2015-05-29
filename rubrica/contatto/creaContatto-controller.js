@@ -3,5 +3,4 @@
  */
 angular.module('engWs')
     .controller('creaContattoController', ['$scope', function($scope){
-        console.log('eccomi crea');
     }]);

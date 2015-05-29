@@ -4,5 +4,4 @@
 
 angular.module('engWs')
 .controller('homeController', ['$scope', function($scope){
-        console.log('eccomi');
 }]);
