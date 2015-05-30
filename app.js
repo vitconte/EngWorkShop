@@ -1,8 +1,12 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
-var app = angular.module('engWs', ['ngRoute']);
-app.config(['$routeProvider', function($routeProvider){
+var app = angular.module('engWs', ['ngRoute', 'tmh.dynamicLocale']);
+
+app.config(['$routeProvider', 'tmhDynamicLocaleProvider', function($routeProvider, tmhDynamicLocaleProvider){
+
+    tmhDynamicLocaleProvider.localeLocationPattern('vendor/angular/i18n/angular-locale_{{locale}}.js');
+
     $routeProvider
         .when('/', {
             templateUrl: 'home/home.html',

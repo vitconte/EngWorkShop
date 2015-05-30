@@ -3,6 +3,12 @@
  */
 angular
     .module('engWs')
-    .controller('sicurezzaController',['$scope', function($scope){
+    .controller('sicurezzaController',['$scope', 'tmhDynamicLocale', function($scope, tmhDynamicLocale){
         $scope.test = "pippo";
+
+        $scope.Oggi  = new Date();
+        $scope.Moneta = 123.45;
+
+        tmhDynamicLocale.set('it');
+
     }]);
