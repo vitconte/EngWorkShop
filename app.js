@@ -20,5 +20,9 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'rubrica/contatto/dettaglo.html',
             controller: 'dettaglioContattoController'
         })
+        .when('/sicurezza',{
+            templateUrl : 'sicurezza/sicurezza.html',
+            controller : 'sicurezzaController'
+        })
         .otherwise({redirectTo: '/'});
 }]);
