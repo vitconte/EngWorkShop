@@ -1,0 +1,26 @@
+body {
+  padding-top: 50px;
+}
+
+h2 {
+	color:#333;
+}
+
+.centered-element {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.lefted-element {
+  padding: 20px 15px;
+  text-align: left;
+}
+
+.head-title {
+	width:100%;
+	border-bottom: solid 1px #ddd;
+}
+
+.simil-form-field {
+	line-height: 34px;
+}

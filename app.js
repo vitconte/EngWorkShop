@@ -1,7 +1,7 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
-var app = angular.module('engWs', ['ngRoute']);
+var app = angular.module('engWs', ['ngRoute', 'contattoModel']);
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/', {
@@ -12,13 +12,13 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'rubrica/rubrica.html',
             controller: 'rubricaController'
         })
-        .when('/rubrica/crea', {
-            templateUrl: 'rubrica/contatto/creaContatto.html',
-            controller: 'creaContattoController'
+        .when('/contatto-create', {
+            templateUrl : 'rubrica/contatto/creaContatto.html',
+            controller : 'creaContattoController'
         })
-        .when('/rubrica/contatto/:id', {
-            templateUrl: 'rubrica/contatto/dettaglo.html',
-            controller: 'dettaglioContattoController'
-        })
+        .when('/contatto-edit/:id', {
+                templateUrl : 'rubrica/contatto/dettaglioContatto.html',
+                controller : 'dettaglioContattoController'
+            })
         .otherwise({redirectTo: '/'});
 }]);
