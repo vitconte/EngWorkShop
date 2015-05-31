@@ -9,9 +9,15 @@ angular.module('engWs')
 
         // callback for ng-click 'update':
         $scope.updateContatto = function () {
-            Contatto.update({id: $routeParams.id},$scope.contatto, function() {
-                $location.path('/contatto-list');
-            });
+            Contatto.update({id: $routeParams.id}, $scope.contatto,
+                function() {
+                   // success
+                   // ToDo: Gestire i msg di success e error
+                },
+                function(){
+                    // error
+                }
+            );
         };
 
         // callback for ng-click 'cancel':

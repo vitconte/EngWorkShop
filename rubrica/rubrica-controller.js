@@ -17,7 +17,16 @@ angular.module('engWs')
 
         // callback for ng-click 'deleteContatto':
         $scope.deleteContatto = function (idContatto) {
-            return $http.get('https://api.mongolab.com/api/1/databases/angworkshop/collections/contatto/' + idContatto + '?apiKey=' + API_KEY);
+            $http.delete('https://api.mongolab.com/api/1/databases/angworkshop/collections/contatto/' + idContatto + '?apiKey=' + API_KEY)
+                .success(function(response){
+                    // success
+                    console.log('eliminazione avvenuta con successo');
+                })
+                .error(function(response){
+                    // error
+                    console.log('eliminazione non andata a buon fine');
+                    // ToDo: Gestire i msg di success e error
+                });
         };
 
         // callback for ng-click 'createContatto':
