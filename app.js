@@ -22,9 +22,9 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
 
     // regole di routing
     $routeProvider
-        .when('/', { //route
-            templateUrl: 'home/home.html', //template
-            controller: 'homeController' //controller
+        .when('/', { // route
+            templateUrl: 'home/home.html', // template
+            controller: 'homeController' // controller
         })
         .when('/rubrica', {
             templateUrl: 'rubrica/rubrica.html',
