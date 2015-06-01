@@ -19,15 +19,16 @@ angular
             }
         };
     }])
-    .factory('AuthenticationService', ['$http', 'localStorageService', function($http, ls) {
+    .factory('AuthService', ['$http', 'localStorageService', function($http, ls) {
         return {
             login: function(username, password, callback) {
-                $http.post('/api/login', {
+                $http.post('http://localhost:58817/api/Authentication', {
                     username: username,
                     password: password
                 })
                 .success(function(data, status, header, config){
                     ls.set('token', data.token);
+                    console.log('pippo');
                     callback();
                 })
                 .error(function(data, status, header, config){

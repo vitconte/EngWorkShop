@@ -6,11 +6,15 @@
 <form class="form-inline">
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Username">
+        <input type="text" class="form-control" id="username" ng-model="username" placeholder="Username">
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password">
+        <input type="password" class="form-control" ng-model="password" id="password">
     </div>
-    <button type="submit" class="btn btn-default">Login</button>
+    <button type="submit" class="btn btn-default" ng-click="login()">Login</button>
+    <button type="submit" class="btn btn-default" ng-click="logout()">Loguot</button>
+    <br>
+    <br>
+    Stato Login : {{ statusLogin }}
 </form>

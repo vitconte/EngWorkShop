@@ -3,7 +3,15 @@
  */
 var app = angular.module('engWs', ['ngRoute', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale']);
 
-app.config(['$routeProvider', '$httpProvider', 'tmhDynamicLocaleProvider', function($routeProvider, $httpProvider, tmhDynamicLocaleProvider){
+app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider){
+
+    localStorageServiceProvider
+        .setPrefix('engWs')
+        .setStorageType('sessionStorage')
+        .setNotify(true, true);
+
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     tmhDynamicLocaleProvider.localeLocationPattern('vendor/angular/i18n/angular-locale_{{locale}}.js');
 
