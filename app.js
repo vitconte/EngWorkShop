@@ -1,11 +1,13 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
-var app = angular.module('engWs', ['ngRoute', 'contattoModel', 'tmh.dynamicLocale']);
+var app = angular.module('engWs', ['ngRoute', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale']);
 
-app.config(['$routeProvider', 'tmhDynamicLocaleProvider', function($routeProvider, tmhDynamicLocaleProvider){
+app.config(['$routeProvider', '$httpProvider', 'tmhDynamicLocaleProvider', function($routeProvider, $httpProvider, tmhDynamicLocaleProvider){
 
     tmhDynamicLocaleProvider.localeLocationPattern('vendor/angular/i18n/angular-locale_{{locale}}.js');
+
+    $httpProvider.interceptors.push("AuthInterceptor");
 
     $routeProvider
         .when('/', {
@@ -28,6 +30,10 @@ app.config(['$routeProvider', 'tmhDynamicLocaleProvider', function($routeProvide
         .when('/sicurezza',{
             templateUrl : 'sicurezza/sicurezza.html',
             controller : 'sicurezzaController'
+        })
+        .when('/auth', {
+            templateUrl : 'auth/auth.html',
+            controller : 'authController'
         })
         .otherwise({redirectTo: '/'});
 }]);

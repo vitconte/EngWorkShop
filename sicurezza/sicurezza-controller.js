@@ -9,6 +9,8 @@ angular
         $scope.Oggi  = new Date();
         $scope.Moneta = 123.45;
 
-        tmhDynamicLocale.set('it');
+        $scope.switchLocale = function(lan){
+            tmhDynamicLocale.set(lan);
+        };
 
     }]);
