@@ -28,7 +28,6 @@ angular
                 })
                 .success(function(data, status, header, config){
                     ls.set('token', data.token);
-                    console.log('pippo');
                     callback();
                 })
                 .error(function(data, status, header, config){
