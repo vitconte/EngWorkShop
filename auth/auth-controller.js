@@ -8,11 +8,6 @@ angular
         $scope.statusLogin = 'Non Connesso';
         $scope.errorMessage = '';
 
-        if(localStorageService.isSupported) {
-            alert('OK');
-        }
-
-        localStorageService.set('ciao', 'pippo');
 
         $scope.login = function(){
 
@@ -28,7 +23,7 @@ angular
                 $scope.statusLogin = 'Connesso';
 
             });
-        }
+        };
 
         $scope.logout = function() {
 
@@ -38,6 +33,15 @@ angular
 
             });
 
-        }
+        };
+
+        $scope.testLogin = function(){
+            $http
+                .get('http://localhost:58817/api/Authentication', { params : { message : 'messaggio'}})
+                .success(function (data) {
+                    console.log(data);
+                })
+        };
+
 
     }]);
