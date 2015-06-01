@@ -20,10 +20,11 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
 
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://localhost:58817/**']);
 
+    // regole di routing
     $routeProvider
-        .when('/', {
-            templateUrl: 'home/home.html',
-            controller: 'homeController'
+        .when('/', { //route
+            templateUrl: 'home/home.html', //template
+            controller: 'homeController' //controller
         })
         .when('/rubrica', {
             templateUrl: 'rubrica/rubrica.html',
