@@ -13,4 +13,5 @@ angular
             tmhDynamicLocale.set(lan);
         };
 
+        $scope.linkInclude = "http://localhost:58817/api/Template";
     }]);

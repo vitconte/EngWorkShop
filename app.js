@@ -3,7 +3,8 @@
  */
 var app = angular.module('engWs', ['ngRoute', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale']);
 
-app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider){
+app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider',
+    function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider){
 
     localStorageServiceProvider
         .setPrefix('engWs')
@@ -16,6 +17,8 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
     tmhDynamicLocaleProvider.localeLocationPattern('vendor/angular/i18n/angular-locale_{{locale}}.js');
 
     $httpProvider.interceptors.push("AuthInterceptor");
+
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://localhost:58817/**']);
 
     $routeProvider
         .when('/', {
