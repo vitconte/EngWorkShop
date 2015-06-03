@@ -6,6 +6,9 @@
 <h3>Data: {{ dataOdierna  | date : "fullDate"}}</h3>
 <h3>Moneta: {{ moneta | currency }}</h3>
 
+<h2>{{ 'HEADLINE' | translate }}</h2>
+<h2>{{ 'INTRO_TEXT' | translate }}</h2>
+
 <button type="button" class="btn btn-default" ng-click="switchLang('it')" aria-label="Left Align">
     Italiano
 </button>

@@ -3,7 +3,7 @@
  */
 angular
     .module('engWs')
-    .controller('localizationController', ['$scope', 'tmhDynamicLocale', function($scope, tmhDynamicLocale){
+    .controller('localizationController', ['$scope', 'tmhDynamicLocale', '$translate', function($scope, tmhDynamicLocale, $translate){
 
         $scope.currentLang = 'en';
         tmhDynamicLocale.set('en');
@@ -14,6 +14,7 @@ angular
         $scope.switchLang = function(lan){
             $scope.currentLang = lan;
             tmhDynamicLocale.set(lan);
+            $translate.use(lan);
         };
 
     }]);

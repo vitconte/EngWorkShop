@@ -1,10 +1,10 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
-var app = angular.module('engWs', ['ngRoute', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale']);
+var app = angular.module('engWs', ['ngRoute', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate']);
 
-app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider',
-    function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider){
+app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider', '$translateProvider',
+    function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider, translateProvider){
 
     localStorageServiceProvider
         .setPrefix('engWs')
@@ -20,7 +20,22 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
 
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://localhost:58817/**']);
 
+    translateProvider.useSanitizeValueStrategy('escaped');
 
+    translateProvider.translations('en', {
+        HEADLINE: 'Hello there, This is my awesome app!',
+        INTRO_TEXT: 'And it has i18n support!'
+    }).translations('it', {
+        HEADLINE: 'Ciao, questa e la mia app!',
+        INTRO_TEXT: 'Ha il supporto a i18n!'
+    });
+
+    translateProvider.useStaticFilesLoader({
+        prefix: 'www/languages/',
+        suffix: '.json'
+    })
+
+    translateProvider.preferredLanguage('en');
     /********************
     * Regole di routing *
     *********************/
