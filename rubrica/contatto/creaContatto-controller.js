@@ -5,17 +5,22 @@ angular.module('engWs')
 
     .controller('creaContattoController', ['$scope', '$location', 'Contatto', function($scope, $location, Contatto){
 
+        // nascondo i msg
+        $scope.showSuccess = false;
+        $scope.showDanger = false;
+
         // callback for ng-click 'createContatto':
         $scope.createContatto = function () {
             Contatto.create($scope.contatto)
                 .$promise
                 .then(function(response) {
                     // success
-
-                    // ToDo: Gestire i msg di success e error
-                })
-                .then(function(response){
+                    console.log('Successo', response);
+                    $scope.showSuccess = true;
+                }, function(response){
                     //error
+                    console.log('Errore', response);
+                    $scope.showDanger = true;
                 });
         };
 

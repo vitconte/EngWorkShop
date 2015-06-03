@@ -8,7 +8,7 @@
 
 </head>
 
-<body ng-app="engWs">
+<body ng-app="engWs" ng-controller="indexController">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -22,10 +22,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#rubrica">Rubrica</a></li>
-                <li><a href="#auth">Autenticazione</a></li>
-                <li><a href="#sicurezza">Sicurezza</a></li>
+                <li ng-class="isActive('/rubrica')"><a href="#rubrica">Rubrica</a></li>
+                <li ng-class="isActive('/auth')"><a href="#auth">Autenticazione</a></li>
+                <li ng-class="isActive('/sicurezza')"><a href="#sicurezza">Sicurezza</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -50,6 +49,7 @@
 <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="index-controller.js"></script>
 <script type="text/javascript" src="home/home-controller.js"></script>
 <script type="text/javascript" src="rubrica/rubrica-controller.js"></script>
 <script type="text/javascript" src="rubrica/contatto/creaContatto-controller.js"></script>

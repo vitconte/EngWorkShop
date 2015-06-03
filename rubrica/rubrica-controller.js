@@ -6,32 +6,36 @@ angular.module('engWs')
 
         var API_KEY = 'WLKPfaC3ztzHpxYtyTD85D7-7iXaO4dj';
 
+        $scope.showDanger = false;
+
         /***********************
          *  FUNZIONI BACK END  *
          ***********************/
 
         // callback for ng-click 'editContatto':
         $scope.editContatto = function (idContatto) {
-            $location.path('/contatto-edit/' + idContatto);
+            $location.path('/rubrica/contatto-edit/' + idContatto);
         };
 
         // callback for ng-click 'deleteContatto':
-        $scope.deleteContatto = function (idContatto) {
-            $http.delete('https://api.mongolab.com/api/1/databases/angworkshop/collections/contatto/' + idContatto + '?apiKey=' + API_KEY)
+        $scope.deleteContatto = function (contatto) {
+            $scope.showDanger = false;
+            $http.delete('https://api.mongolab.com/api/1/databases/angworkshop/collections/contatto/' + contatto._id.$oid + '?apiKey=' + API_KEY)
                 .success(function(response){
                     // success
                     console.log('eliminazione avvenuta con successo');
+                    $scope.rubrica.remove(contatto);
                 })
                 .error(function(response){
                     // error
                     console.log('eliminazione non andata a buon fine');
-                    // ToDo: Gestire i msg di success e error
+                    $scope.showDanger = true;
                 });
         };
 
         // callback for ng-click 'createContatto':
         $scope.createContatto = function () {
-            $location.path('/contatto-create');
+            $location.path('/rubrica/contatto-create');
         };
 
 
@@ -52,4 +56,16 @@ angular.module('engWs')
                 $scope.rubrica = response.data;
             });
 
+
+        /*********************
+         *  UTILITY INTERNE  *
+         *********************/
+
+        Array.prototype.remove = function (elem) {
+            var index;
+            for (var i in this) {
+                if (this[i] == elem) index = i;
+            }
+            this.splice(index, 1);
+        }
     }]);

@@ -35,7 +35,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="contatto in rubrica | filter:query" ng-show="$index < 10 || showAll">
+        <tr ng-repeat="contatto in rubrica | filter:query" ng-show="$index < 20 || showAll">
             <td>{{contatto.nome}}</td>
             <td>{{contatto.cognome }}</td>
             <td>{{contatto.telefono}}</td>
@@ -46,13 +46,14 @@
                 <a class="btn btn-small btn-warning" ng-click="editContatto(contatto._id.$oid)" tooltip="Modifica">
                     <i class="glyphicon glyphicon-edit" style="color:white"></i>
                 </a>
-                <a class="btn btn-small btn-danger" ng-click="deleteContatto(contatto._id.$oid)" tooltip="Elimina">
+                <a class="btn btn-small btn-danger" ng-click="deleteContatto(contatto)" tooltip="Elimina">
                     <i class="glyphicon glyphicon-remove" style="color:white"></i>
                 </a>
             </td>
         </tr>
         </tbody>
     </table>
+    <div ng-show="showDanger" class="alert alert-danger" role="alert">Eliminazione non riuscito</div>
     <a ng-click="createContatto()" class="btn btn-small btn-primary" tooltip="Nuovo">
         <i class="glyphicon glyphicon-file" style="color:white"></i></a>
 </div>
