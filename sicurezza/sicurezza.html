@@ -1,17 +1,7 @@
-<div class="centered-element">
-    <h1>AngularJS Workshop</h1>
-    Come proteggersi {{ test }}
-    <br>
-    {{ Oggi  | date : "fullDate"}}
-    <br>
-    {{ Moneta | currency }}
-    <br>
-    <button ng-click="switchLocale('it');">ITA</button>
-    <br>
-    <button ng-click="switchLocale('en');">ENG</button>
+<div class="head-title">
+    <h1>Sicurezza</h1>
+</div>
 
-    <br>
-    <div ng-include="linkInclude">
-
-    </div>
+<div class="lefted-element">
+    <textarea ng-model="htmlBody"></textarea>
 </div>
