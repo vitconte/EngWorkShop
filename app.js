@@ -46,6 +46,10 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
             templateUrl : 'sicurezza/sicurezza.html',
             controller : 'sicurezzaController'
         })
+        .when('/localization',{
+            templateUrl : 'localization/localization.html',
+            controller : 'localizationController'
+        })
         .when('/auth', {
             templateUrl : 'auth/auth.html',
             controller : 'authController'

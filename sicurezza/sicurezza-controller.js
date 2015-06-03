@@ -4,6 +4,10 @@
 angular
     .module('engWs')
     .controller('sicurezzaController',['$scope', 'tmhDynamicLocale', function($scope, tmhDynamicLocale){
+
+        $scope.currentLang = 'en';
+        tmhDynamicLocale.set('en');
+
         $scope.test = "pippo";
 
         $scope.Oggi  = new Date();
