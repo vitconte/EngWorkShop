@@ -31,7 +31,7 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
     });
 
     translateProvider.useStaticFilesLoader({
-        prefix: 'www/languages/',
+        prefix: './language/',
         suffix: '.json'
     })
 
