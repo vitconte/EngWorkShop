@@ -3,19 +3,16 @@
  */
 angular
     .module('engWs')
-    .controller('sicurezzaController',['$scope', 'tmhDynamicLocale', function($scope, tmhDynamicLocale){
+    .controller('sicurezzaController',['$scope', '$sce', function($scope, $sce){
 
-        $scope.currentLang = 'en';
-        tmhDynamicLocale.set('en');
+        $scope.trustAsHtml = $sce.trustAsHtml;
 
-        $scope.test = "pippo";
+        $scope.htmlBody = '<h1 style="color:blue" onclick="alert(\'ciao\');">test</h1>';
 
-        $scope.Oggi  = new Date();
-        $scope.Moneta = 123.45;
-
-        $scope.switchLocale = function(lan){
-            tmhDynamicLocale.set(lan);
-        };
+        $scope.$watch('htmlBody', function(v) {
+            $scope.trustHtml = $sce.trustAsHtml($scope.htmlBody);
+        });
 
         $scope.linkInclude = "http://localhost:58817/api/Template";
+
     }]);

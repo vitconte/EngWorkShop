@@ -24,9 +24,8 @@ namespace engWebApi.Controllers
         [HttpGet]
         public object testAuth(string message)
         {
-            var header = HttpContext.Current.Request.Headers;
-
             var auth = HttpContext.Current.Request.Headers["Authorization"];
+
             return "Test";
         }
     }

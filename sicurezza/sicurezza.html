@@ -4,4 +4,8 @@
 
 <div class="lefted-element">
     <textarea ng-model="htmlBody"></textarea>
+    <div>{{ htmlBody }}</div>
+    <div ng-bind-html="htmlBody"></div>
+    <pre ng-bind-html="trustHtml"></pre>
+    <div ng-include="linkInclude"></div>
 </div>
