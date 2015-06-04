@@ -40,7 +40,7 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
     * Regole di routing *
     *********************/
     $routeProvider
-        .when('/', { // route
+        .when('/home', { // route
             templateUrl: 'home/home.html', // template
             controller: 'homeController' // controller
         })
@@ -69,5 +69,6 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
             templateUrl : 'auth/auth.html',
             controller : 'authController'
         })
-        .otherwise({redirectTo: '/'});
+        .otherwise({redirectTo: '/home'});
 }]);
+
