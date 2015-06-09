@@ -25,7 +25,7 @@ var decodeToken = function(token){
     return jwt.verify(token, secret);
 };
 
-app.post('/api/Authentication', function(req, res, next){
+app.post('/pub/Authentication', function(req, res, next){
 
     console.log(req);
 
@@ -42,7 +42,7 @@ app.post('/api/Authentication', function(req, res, next){
 
 });
 
-app.get('/api/checkAuth', function(req, res, next){
+app.all('/api/*', function(req, res, next){
     var authHeader = req.headers['authorization'];
 
     if(authHeader) {
@@ -56,6 +56,10 @@ app.get('/api/checkAuth', function(req, res, next){
 
     res.status(401);
     res.end('Authorization denied');
+});
+
+app.get('/api/checkAuth', function(req, res, next){
+
 });
 
 var server = app.listen(3000, function () {
