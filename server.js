@@ -42,6 +42,22 @@ app.post('/api/Authentication', function(req, res, next){
 
 });
 
+app.get('/api/checkAuth', function(req, res, next){
+    var authHeader = req.headers['authorization'];
+
+    if(authHeader) {
+        var decodedToken = decodeToken(authHeader);
+
+        if(decodedToken) {
+            req.userInfo = decodedToken;
+            next();
+        }
+    };
+
+    res.status(401);
+    res.end('Authorization denied');
+});
+
 var server = app.listen(3000, function () {
 
     var host = server.address().address;

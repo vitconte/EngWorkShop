@@ -13,8 +13,6 @@ angular
 
             auth.login($scope.username, $scope.password, function(err){
 
-                console.log('arriva');
-
                 if(err) {
                     $scope.errorMessage = err;
                     return;
