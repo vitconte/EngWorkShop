@@ -50,12 +50,14 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
         })
        .when('/rubrica/contatto-create', {
             templateUrl : 'rubrica/contatto/creaContatto.html',
-            controller : 'creaContattoController'
+            controller : 'creaContattoController',
+            resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}}
         })
 
         .when('/rubrica/contatto-edit/:id', {
             templateUrl : 'rubrica/contatto/dettaglioContatto.html',
-            controller : 'dettaglioContattoController'
+            controller : 'dettaglioContattoController',
+            resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}}
         })
         .when('/sicurezza',{
             templateUrl : 'sicurezza/sicurezza.html',

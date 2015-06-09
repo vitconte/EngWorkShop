@@ -3,7 +3,12 @@
  */
 angular.module('engWs')
 
-    .controller('creaContattoController', ['$scope', '$location', 'Contatto', function($scope, $location, Contatto){
+    .controller('creaContattoController', ['$scope', '$location', 'Contatto', 'tipiContatto',
+        function($scope, $location, Contatto, tipiContatto){
+
+        // associo i dati dell'array tipoContatto passato con la resolve
+        // alla variabile del modello tipoContatto
+        $scope.tipiContatto = tipiContatto;
 
         // nascondo i msg
         $scope.showSuccess = false;

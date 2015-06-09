@@ -1,6 +1,10 @@
 angular.module('engWs')
-    .controller('dettaglioContattoController', ['$scope', 'Contatto', '$location', '$routeParams',
-        function($scope, Contatto, $location, $routeParams){
+    .controller('dettaglioContattoController', ['$scope', 'Contatto', '$location', '$routeParams', 'tipiContatto',
+        function($scope, Contatto, $location, $routeParams, tipiContatto){
+
+            // associo i dati dell'array tipoContatto passato con la resolve
+            // alla variabile del modello tipoContatto
+            $scope.tipiContatto = tipiContatto;
 
             // nascondo i msg
             $scope.showSuccess = false;
@@ -28,7 +32,7 @@ angular.module('engWs')
 
             // Callback for ng-click 'cancel':
             $scope.cancel = function () {
-                $location.path('/contatto-list');
+                $location.path('/rubrica');
             };
 
             // Carico dati contatto chiamando la action show della resource
@@ -37,5 +41,6 @@ angular.module('engWs')
                 $scope.contatto.nome = contatto.nome;
                 $scope.contatto.cognome = contatto.cognome;
                 $scope.contatto.telefono = contatto.telefono;
+                $scope.contatto.tipo = contatto.tipo;
             });
     }]);

@@ -37,6 +37,19 @@
         </div>
     </div>
 
+    <div class="form-group">
+
+        <label for="contatto-tipo" class="col-sm-2 control-label">Tipo *</label>
+
+        <div class="col-sm-7">
+            <select type="text" class="form-control" name="tipo"
+                   ng-model="contatto.tipo"
+                   id="contatto-tipo"
+                   ng-options="item for item in tipiContatto"></select>
+
+        </div>
+    </div>
+
     <div class="form-group"
          ng-class="{ 'has-error' : contattoForm.telefono.$invalid && !contattoForm.telefono.$pristine }">
 
