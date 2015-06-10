@@ -42,6 +42,7 @@ app.post('/pub/Authentication', function(req, res, next){
 
 app.all('/api/*', function(req, res, next){
 
+    console.log(typeof req.headers["authorization"])
     if(req.headers["authorization"] != 'null') {
         var decodedToken = decodeToken(req.headers["authorization"]);
         if(decodedToken) {

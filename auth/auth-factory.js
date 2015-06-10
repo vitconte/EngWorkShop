@@ -7,8 +7,10 @@ angular
         return {
             'request': function (request) {
                 request.headers = request.headers || {};
+
                 var token = ls.get('token');
                 request.headers.Authorization = token;
+                console.log(typeof request.headers.Authorization)
                 return request;
             },
             'responseError': function(response) {
