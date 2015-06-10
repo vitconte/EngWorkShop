@@ -7,9 +7,9 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
     function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider, translateProvider){
 
     localStorageServiceProvider
-        .setPrefix('engWs')
-        .setStorageType('sessionStorage')
-        .setNotify(true, true);
+        .setPrefix('engWs');
+        //.setStorageType('sessionStorage')
+        //.setNotify(true, true);
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];

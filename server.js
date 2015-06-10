@@ -27,8 +27,6 @@ var decodeToken = function(token){
 
 app.post('/pub/Authentication', function(req, res, next){
 
-    console.log(req);
-
     // Controlli validazione utente se OK
 
     var result =  {
@@ -43,23 +41,24 @@ app.post('/pub/Authentication', function(req, res, next){
 });
 
 app.all('/api/*', function(req, res, next){
-    var authHeader = req.headers['authorization'];
 
-    if(authHeader) {
-        var decodedToken = decodeToken(authHeader);
-
+    if(req.headers["authorization"] != 'null') {
+        var decodedToken = decodeToken(req.headers["authorization"]);
         if(decodedToken) {
             req.userInfo = decodedToken;
             next();
+            return;
         }
-    };
+    }
 
     res.status(401);
     res.end('Authorization denied');
 });
 
 app.get('/api/checkAuth', function(req, res, next){
-
+    console.log(req.userInfo);
+    res.json({ result : true });
+    next();
 });
 
 var server = app.listen(3000, function () {

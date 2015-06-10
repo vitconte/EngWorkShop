@@ -34,8 +34,9 @@ angular
         };
 
         $scope.testLogin = function(){
+            //http://localhost:58817/api/Authentication
             $http
-                .get('http://localhost:58817/api/Authentication', { params : { message : 'messaggio'}})
+                .get('/api/checkAuth', { params : { message : 'messaggio'}})
                 .success(function (data) {
                     console.log(data);
                 })

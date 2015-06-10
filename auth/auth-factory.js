@@ -22,7 +22,8 @@ angular
     .factory('AuthService', ['$http', 'localStorageService', function($http, ls) {
         return {
             login: function(username, password, callback) {
-                $http.post('http://localhost:58817/api/Authentication', {
+                //http://localhost:58817/api/Authentication
+                $http.post('pub/Authentication', {
                     username: username,
                     password: password
                 })
