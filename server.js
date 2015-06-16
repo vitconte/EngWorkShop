@@ -5,6 +5,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
+var cookieParser = require('cookie-parser');
 
 var secret = 'EngWorkShop';
 
@@ -12,9 +13,8 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static(__dirname));
-
+app.use(cookieParser());
 // Funzioni per la creazione del TOKEN
 
 var createToken = function(username) {
@@ -35,6 +35,7 @@ app.post('/pub/Authentication', function(req, res, next){
         loginRedirect: null
     };
 
+    res.cookie('XSRF-TOKEN', "123456");
     res.json(result);
     next();
 
@@ -42,7 +43,8 @@ app.post('/pub/Authentication', function(req, res, next){
 
 app.all('/api/*', function(req, res, next){
 
-    console.log(typeof req.headers["authorization"])
+    console.log(req.headers);
+
     if(req.headers["authorization"] != 'null') {
         var decodedToken = decodeToken(req.headers["authorization"]);
         if(decodedToken) {
