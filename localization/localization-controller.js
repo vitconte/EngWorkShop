@@ -15,6 +15,21 @@ angular
             $scope.currentLang = lan;
             tmhDynamicLocale.set(lan);
             $translate.use(lan);
+
+            if(lan == 'en')
+                $scope.customLanguage = repoEng;
+            else
+                $scope.customLanguage = repoIta;
         };
+
+        var repoIta = {
+            titolo : 'Questo è il titolo per una prova'
+        };
+
+        var repoEng = {
+            titolo : 'This is Title'
+        };
+
+        $scope.customLanguage = repoIta;
 
     }]);
