@@ -42,35 +42,55 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
     $routeProvider
         .when('/home', { // route
             templateUrl: 'home/home.html', // template
-            controller: 'homeController' // controller
+            controller: 'homeController', // controller
+            access: { requiredLogin: false }
         })
         .when('/rubrica', {
             templateUrl: 'rubrica/rubrica.html',
-            controller: 'rubricaController'
+            controller: 'rubricaController',
+            access: { requiredLogin: false }
         })
        .when('/rubrica/contatto-create', {
             templateUrl : 'rubrica/contatto/creaContatto.html',
             controller : 'creaContattoController',
-            resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}}
+            resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}},
+            access: { requiredLogin: false }
         })
 
         .when('/rubrica/contatto-edit/:id', {
             templateUrl : 'rubrica/contatto/dettaglioContatto.html',
             controller : 'dettaglioContattoController',
-            resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}}
+            resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}},
+            access: { requiredLogin: false }
         })
         .when('/sicurezza',{
             templateUrl : 'sicurezza/sicurezza.html',
-            controller : 'sicurezzaController'
+            controller : 'sicurezzaController',
+            access: { requiredLogin: false }
         })
         .when('/localization',{
             templateUrl : 'localization/localization.html',
-            controller : 'localizationController'
+            controller : 'localizationController',
+            access: { requiredLogin: true }
         })
         .when('/auth', {
             templateUrl : 'auth/auth.html',
-            controller : 'authController'
+            controller : 'authController',
+            access: { requiredLogin: false }
         })
         .otherwise({redirectTo: '/home'});
 }]);
+
+app.run(function($rootScope, AuthService) {
+    $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
+
+            if (nextRoute.access.requiredLogin && !AuthService.status()) {
+                event.preventDefault();
+                window.location.href = "#/auth";
+                return;
+            };
+
+
+    });
+});
 
