@@ -56,7 +56,6 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
             resolve: {tipiContatto: function(){ return ['casa', 'ufficio', 'personale']}},
             access: { requiredLogin: false }
         })
-
         .when('/rubrica/contatto-edit/:id', {
             templateUrl : 'rubrica/contatto/dettaglioContatto.html',
             controller : 'dettaglioContattoController',
