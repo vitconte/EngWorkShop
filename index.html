@@ -1,4 +1,5 @@
-<html lang="it">
+<!DOCTYPE HTML>
+<html>
 <head>
     <title>AngularJS workshop</title>
 
@@ -8,7 +9,7 @@
 
 </head>
 
-<body ng-app="engWs" ng-controller="indexController">
+<body data-ng-app="engWs" data-ng-controller="indexController">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -22,18 +23,18 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li ng-class="isActive('/home')"><a href="#home">Home</a></li>
-                <li ng-class="isActive('/rubrica')"><a href="#rubrica">Crud</a></li>
-                <li ng-class="isActive('/auth')"><a href="#auth">Autenticazione</a></li>
-                <li ng-class="isActive('/sicurezza')"><a href="#sicurezza">Sicurezza</a></li>
-                <li ng-class="isActive('/localization')"><a href="#localization">Localizzazione</a></li>
+                <li data-ng-class="isActive('/home')"><a href="#home">Home</a></li>
+                <li data-ng-class="isActive('/rubrica')"><a href="#rubrica">Crud</a></li>
+                <li data-ng-class="isActive('/auth')"><a href="#auth">Autenticazione</a></li>
+                <li data-ng-class="isActive('/sicurezza')"><a href="#sicurezza">Sicurezza</a></li>
+                <li data-ng-class="isActive('/localization')"><a href="#localization">Localizzazione</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
 <div class="container">
-    <div class="row" ng-view></div>
+    <div class="row" data-ng-view></div>
 </div>
 
 
