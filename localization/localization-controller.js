@@ -10,6 +10,7 @@ angular
 
         $scope.dataOdierna  = new Date();
         $scope.moneta = 123.45;
+        $scope.numero = 1234.56789;
 
         $scope.switchLang = function(lan){
             $scope.currentLang = lan;
@@ -23,11 +24,11 @@ angular
         };
 
         var repoIta = {
-            titolo : 'Questo è il titolo per una prova'
+            titolo : 'Titolo di prova'
         };
 
         var repoEng = {
-            titolo : 'This is Title'
+            titolo : 'This is the Title'
         };
 
         $scope.customLanguage = repoIta;
