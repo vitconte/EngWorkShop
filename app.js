@@ -83,13 +83,13 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
 app.run(function($rootScope, AuthService) {
     $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
 
-            if (nextRoute.access.requiredLogin && !AuthService.status()) {
-                event.preventDefault();
-                window.location.href = "#/auth";
-                return;
-            };
-
-
+            if(nextRoute.access !== undefined){
+                if (nextRoute.access.requiredLogin && !AuthService.status()) {
+                    event.preventDefault();
+                    window.location.href = "#/auth";
+                    return;
+                };
+            }
     });
 });
 
