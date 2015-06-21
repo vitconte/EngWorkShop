@@ -42,5 +42,6 @@ angular.module('engWs')
                 $scope.contatto.cognome = contatto.cognome;
                 $scope.contatto.telefono = contatto.telefono;
                 $scope.contatto.tipo = contatto.tipo;
+                $scope.contatto.completamento = contatto.completamento;
             });
     }]);

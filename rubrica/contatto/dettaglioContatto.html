@@ -2,80 +2,72 @@
     <h1>Dettaglio contatto {{contatto.nome}}</h1>
 </div>
 
-<form name="contattoForm" role="form" class="form-horizontal lefted-element" novalidate>
-    <div class="form-group"
-         ng-class="{ 'has-error' : contattoForm.nome.$invalid && !contattoForm.nome.$pristine }">
+<form name="contattoForm" role="form" class="form-horizontal lefted-element">
+    <div class="form-group">
 
-        <label for="contatto-nome" class="col-sm-2 control-label">Nome *</label>
+        <label for="contatto-nome" class="col-sm-2 control-label">Nome</label>
 
         <div class="col-sm-7">
             <input type="text" class="form-control" name="nome"
-                   ng-model="contatto.nome"
-                   required
-                   id="contatto-nome"
+                   data-ng-model="contatto.nome"
                    placeholder="Inserisci il nome" />
-
-            <p  ng-show="contattoForm.nome.$invalid && !contattoForm.nome.$pristine"
-                class="help-block">Nome obbligatorio</p>
-        </div>
-    </div>
-
-    <div class="form-group"
-         ng-class="{ 'has-error' : contattoForm.cognome.$invalid && !contattoForm.cognome.$pristine }">
-
-        <label for="contatto-cognome" class="col-sm-2 control-label">Cognome *</label>
-
-        <div class="col-sm-7">
-            <input type="text" class="form-control" name="cognome"
-                   ng-model="contatto.cognome"
-                   required
-                   id="contatto-cognome"
-                   placeholder="Inserisci il cognome" />
-
-            <p  ng-show="contattoForm.cognome.$invalid && !contattoForm.cognome.$pristine"
-                class="help-block">Cognome obbligatorio</p>
         </div>
     </div>
 
     <div class="form-group">
 
-        <label for="contatto-tipo" class="col-sm-2 control-label">Tipo *</label>
+        <label for="contatto-cognome" class="col-sm-2 control-label">Cognome</label>
+
+        <div class="col-sm-7">
+            <input type="text" class="form-control" name="cognome"
+                   data-ng-model="contatto.cognome"
+                   placeholder="Inserisci il cognome" />
+        </div>
+    </div>
+
+   <!-- <div class="form-group">
+
+        <label for="contatto-completamento" class="col-sm-2 control-label">Percentuale completamento</label>
+
+        <div class="col-sm-7">
+             <input type="range" class="form-control" name="completamento"
+                       data-ng-model="contatto.completamento"
+                       placeholder="Inserisci la perc. completamento" min="0" max="100" step="25" />
+        </div>
+    </div> -->
+
+    <div class="form-group">
+
+        <label for="contatto-tipo" class="col-sm-2 control-label">Tipo</label>
 
         <div class="col-sm-7">
             <select type="text" class="form-control" name="tipo"
-                   ng-model="contatto.tipo"
-                   id="contatto-tipo"
-                   ng-options="item for item in tipiContatto"></select>
+                   data-ng-model="contatto.tipo"
+                   data-ng-options="item for item in tipiContatto"></select>
 
         </div>
     </div>
 
-    <div class="form-group"
-         ng-class="{ 'has-error' : contattoForm.telefono.$invalid && !contattoForm.telefono.$pristine }">
+    <div class="form-group">
 
-        <label for="contatto-telefono" class="col-sm-2 control-label">Telefono *</label>
+        <label for="contatto-telefono" class="col-sm-2 control-label">Telefono</label>
 
         <div class="col-sm-7">
             <input type="text" class="form-control" name="telefono"
-                   ng-model="contatto.telefono"
-                   required
-                   id="contatto-telefono"
+                   data-ng-model="contatto.telefono"
                    placeholder="Inserisci il telefono" />
-
-            <p  ng-show="contattoForm.telefono.$invalid && !contattoForm.telefono.$pristine"
-                class="help-block">Telefono obbligatorio</p>
         </div>
     </div>
 
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-primary" ng-click="updateContatto()"
-                    ng-disabled="contattoForm.$invalid || isUnchanged(scheda)">Salva</button>
-            <button class="btn btn-secondary" ng-click="cancel()">Annulla</button>
+            <button class="btn btn-primary" data-ng-click="updateContatto()"
+                    data-ng-disabled="isUnchanged(scheda)">Salva</button>
+            <button class="btn btn-secondary" data-ng-click="cancel()">Annulla</button>
         </div>
     </div>
 
-    <div ng-show="showSuccess" class="alert alert-success" role="alert">Aggiornamento riuscito con successo</div>
-    <div ng-show="showDanger" class="alert alert-danger" role="alert">Aggiornamento non riuscito</div>
+    <div data-ng-show="showSuccess" class="alert alert-success" role="alert">Aggiornamento riuscito con successo</div>
+    <div data-ng-show="showDanger" class="alert alert-danger" role="alert">Aggiornamento non riuscito</div>
 </form>
