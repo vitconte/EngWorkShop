@@ -93,7 +93,7 @@ app.run(function($rootScope, AuthService) {
             if(nextRoute.access !== undefined){
                 if (nextRoute.access.requiredLogin && !AuthService.status()) {
                     event.preventDefault();
-                    window.location.href = "#/auth";
+                    window.location.href = "/auth";
                     return;
                 };
             }
