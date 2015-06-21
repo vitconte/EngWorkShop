@@ -3,8 +3,8 @@
  */
 var app = angular.module('engWs', ['ngRoute', 'ngSanitize', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate']);
 
-app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider', '$translateProvider',
-    function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider, translateProvider){
+app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider', '$translateProvider', '$locationProvider',
+    function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider, translateProvider, $locationProvider){
 
     localStorageServiceProvider
         .setPrefix('engWs');
@@ -78,6 +78,13 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
             access: { requiredLogin: false }
         })
         .otherwise({redirectTo: '/home'});
+
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+
+        $locationProvider.hashPrefix('!');
 }]);
 
 app.run(function($rootScope, AuthService) {
