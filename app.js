@@ -1,7 +1,7 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
-var app = angular.module('engWs', ['ngRoute', 'ngSanitize', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate', 'ngAria']);
+var app = angular.module('engWs', ['ngRoute', 'ngSanitize', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate']);
 
 app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider', '$translateProvider', '$locationProvider',
     function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider, translateProvider, $locationProvider){
@@ -81,14 +81,13 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
         })
         .otherwise({redirectTo: '/home'});
 
-        /* For HTML5 ROUTING */
-        /*
-        $locationProvider.html5Mode({
+        /* Decommentare per HTML5 ROUTING */
+        /*$locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         });
         $locationProvider.hashPrefix('!');
-        */
+*/
 }]);
 
 app.run(function($rootScope, AuthService) {

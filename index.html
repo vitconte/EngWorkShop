@@ -6,14 +6,16 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 
-    <!-- For HTML5 ROUTING -->
+    <!-- Decommentare per HTML5 ROUTING -->
     <!-- <meta name="fragment" content="!">
-        <base href="/"> -->
+        <base href="/">-->
 
 </head>
 
 <body data-ng-app="engWs" data-ng-controller="indexController">
-<nav class="navbar navbar-inverse navbar-fixed-top">
+
+<!-- COMMENTARE PER HTML ROUTING -->
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -32,9 +34,34 @@
                 <li data-ng-class="isActive('/sicurezza')"><a href="#sicurezza">Sicurezza</a></li>
                 <li data-ng-class="isActive('/localization')"><a href="#localization">Localizzazione</a></li>
             </ul>
+        </div><
+    </div>
+</nav>-->
+
+<!-- DECOMMENTARE PER HTML ROUTING -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home">EngWorkShop</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li data-ng-class="isActive('/home')"><a href="/home">Home</a></li>
+                <li data-ng-class="isActive('/rubrica')"><a href="/rubrica">Crud</a></li>
+                <li data-ng-class="isActive('/auth')"><a href="/auth">Autenticazione</a></li>
+                <li data-ng-class="isActive('/sicurezza')"><a href="/sicurezza">Sicurezza</a></li>
+                <li data-ng-class="isActive('/localization')"><a href="/localization">Localizzazione</a></li>
+            </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+
 
 <div class="container">
     <div class="row" data-ng-view></div>

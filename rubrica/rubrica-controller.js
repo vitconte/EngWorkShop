@@ -4,6 +4,7 @@
 angular.module('engWs')
     .controller('rubricaController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
+        // codice identificativo da usare per accedere alle webapi esposte dal servizio mongoLab per il db dell'esempio
         var API_KEY = 'WLKPfaC3ztzHpxYtyTD85D7-7iXaO4dj';
 
         $scope.showDanger = false;

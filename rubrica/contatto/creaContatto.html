@@ -5,10 +5,10 @@
 <form name="contattoForm" role="form" class="form-horizontal lefted-element">
     <div class="form-group">
 
-        <label for="contatto-nome" class="col-sm-2 control-label">Nome</label>
+        <label for="nome" class="col-sm-2 control-label">Nome</label>
 
         <div class="col-sm-7">
-            <input type="text" class="form-control" name="nome"
+            <input id="nome" type="text" class="form-control" name="nome"
                    data-ng-model="contatto.nome"
                    placeholder="Inserisci il nome" />
         </div>
@@ -16,17 +16,17 @@
 
     <div class="form-group">
 
-        <label for="contatto-cognome" class="col-sm-2 control-label">Cognome</label>
+        <label for="cognome" class="col-sm-2 control-label">Cognome</label>
 
         <div class="col-sm-7">
-            <input type="text" class="form-control" name="cognome"
+            <input id="cognome" type="text" class="form-control" name="cognome"
                    data-ng-model="contatto.cognome"
                    placeholder="Inserisci il cognome" />
 
         </div>
     </div>
 
-    <!-- <div class="form-group">
+    <div class="form-group">
 
         <label for="contatto-completamento" class="col-sm-2 control-label">Percentuale completamento</label>
 
@@ -36,14 +36,14 @@
                    placeholder="Inserisci la perc completamento" min="0" max="100" />
 
         </div>
-    </div>-->
+    </div>
 
     <div class="form-group">
 
-        <label for="contatto-tipo" class="col-sm-2 control-label">Tipo</label>
+        <label for="tipo" class="col-sm-2 control-label">Tipo</label>
 
         <div class="col-sm-7">
-            <select class="form-control" name="tipo"
+            <select id="tipo" class="form-control" name="tipo"
                     data-ng-model="contatto.tipo"
                     data-ng-options="item as item for item in tipiContatto">
                 <option value="">Selezionare un tipo</option>
@@ -53,10 +53,10 @@
 
     <div class="form-group">
 
-        <label for="contatto-telefono" class="col-sm-2 control-label">Telefono</label>
+        <label for="telefono" class="col-sm-2 control-label">Telefono</label>
 
         <div class="col-sm-7">
-            <input type="text" class="form-control" name="telefono"
+            <input id="telefono" type="text" class="form-control" name="telefono"
                    data-ng-model="contatto.telefono"
                    placeholder="Inserisci il telefono" />
         </div>
