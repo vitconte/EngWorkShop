@@ -1,6 +1,7 @@
 /**
  * Created by vconte02 on 28/05/2015.
  */
+    //per testare l'aggiunta dei parametri ARIA aggiungere la dipendenza dal modulo ngAria
 var app = angular.module('engWs', ['ngRoute', 'ngSanitize', 'contattoModel', 'LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate']);
 
 app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider', '$translateProvider', '$locationProvider',
