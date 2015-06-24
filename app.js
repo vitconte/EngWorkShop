@@ -7,7 +7,7 @@ var app = angular.module('engWs', ['ngRoute', 'ngSanitize', 'contattoModel', 'Lo
 app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 'tmhDynamicLocaleProvider', '$sceDelegateProvider', '$translateProvider', '$locationProvider',
     function($routeProvider, $httpProvider, localStorageServiceProvider, tmhDynamicLocaleProvider, $sceDelegateProvider, translateProvider, $locationProvider){
 
-
+    //Provider per gestire l'autenticazione (DatabaseStorage del browser)
     localStorageServiceProvider
         .setPrefix('engWs');
         //.setStorageType('sessionStorage')
@@ -16,12 +16,16 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
+    //Provider per gestire i18n (Localizzazzione)
     tmhDynamicLocaleProvider.localeLocationPattern('vendor/angular/i18n/angular-locale_{{locale}}.js');
 
+    //Provider per aggiungere ad ogni request l'header di autenticazione
     $httpProvider.interceptors.push("AuthInterceptor");
 
+    //ngSanitize - Provider per la gestione dell'inclusione di risorse da fonti attendibili
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://localhost:58817/**']);
 
+    //Provider per la gestione della Internazionionalizzazione (i10n)
     translateProvider.useSanitizeValueStrategy('escaped');
 
     translateProvider.translations('en', {
@@ -94,6 +98,7 @@ app.config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', 't
 app.run(function($rootScope, AuthService) {
     $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
 
+            // Check al cambio di view per verificare se sei autenticato
             if (nextRoute.access.requiredLogin && !AuthService.status()) {
                 event.preventDefault();
                 window.location.href = "#/auth";
